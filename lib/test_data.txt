@@ -1,0 +1,74 @@
+2010-11 camaro
+
+pos 1 = 2 Canada (Country of origin)
+pos 2 = G GM (Manufacturer)
+pos 3 = 1 Chevrolet (Make)
+
+pos 4 = F Camaro (Carline-Make)
+pos 5 = [E, A, F, B, G, C, S, T, J, K]
+        “E” for 1LS man (1EE37)
+        “A” for 1LS auto
+        “F” for 1LT man (1EF37)
+        “B” for 1LT auto
+        “G” for 2LT man (1EH37)
+        “C” for 2LT auto
+        “S” for 1SS man (1ES37)
+        “T” for 2SS man (1ET37)
+        “J” for 1SS auto
+        “K” for 2SS auto
+
+pos 6 = 1 Two Door Coupe (Body Type) ( 3 = convertible)
+
+pos 7 = E (Restraint Code)
+          ACTIVE MANUAL BELTS,  AIRBAGS - DRIVER & PASSENGER - FRONT (1st ROW), &
+          FRONT SEAT SIDE (1st ROW), ROOF SIDE (ALL SEATING ROWS)
+
+pos 8 = [V, W, J]
+        "V" for LLT 3.6L V6
+        "W" for LS 6.2L V8
+        "J" for L99 6.2L V8
+
+pos 9 Check Digit
+
+pos 10 = A 2010
+
+pos 11 = 9 Oshawa (Plant code)
+
+pos 12-17 Sequence # current production, pos 12 = 1
+
+=========
+
+table (manufacturers)
+id | country | manufacturer | make | vin_code (1-3)
+1 | Canada | GM | Chevrolet | 2G1
+2 | USA | GM | Cheverolet | 1G1
+
+table (makes)
+id | year_ids | manufacturer_id | make| model | body_type | restraint_type | engine | vin_code (4-8)
+1 | 1,2 | 1 | Camaro | LS Automatic | Two Door Coupe | Active Manual Belts etc. | 3.6L V6 | FA1E
+
+table (years)
+id | year | vin_code
+1 | 2010 | A
+2 | 2011 | B
+
+table (plants)
+id | make_id | name| vin_code
+1 | 1 | Oshawa | 9
+
+=year
+
+=make
+
+=model
+trim_id
+body_type_id
+engine_id
+
+=trim
+id
+name
+vin_code
+
+=body type
+
