@@ -1,6 +1,9 @@
+require "vinbot/vin_contants"
 require "vinbot/vehicle"
 require "vinbot/vin"
-#require_relative '../lib/vinbot/setup'
+require "securerandom"
+require "pry"
+require "pry-nav"
 
 module Vinbot
 

@@ -1,0 +1,23 @@
+---
+
+models:
+-
+  make: Chevrolet
+  model: Camaro
+  years: 2010-2014
+
+-
+  make: Ford
+  model: Ranger
+  years: 2010-2014
+
+-
+  make: Chevrolet
+  model: Equinox
+  years: 2008-2012
+
+-
+  make: Ford
+  model: Focus
+  years: 2014-2016
+  

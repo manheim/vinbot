@@ -9,11 +9,22 @@ module Vinbot
 
     end
 
-    def check_digit
-      self.vin.each_with_index { |v, i| v[i] }
+    def generate_vin
+
     end
 
   end
 end
 
 
+
+
+
+
+# #vin
+# Vinbot::Vin.generate
+#
+# #vehicle
+# Vinbot::Vehicle.new(options={})
+#
+# options = {year: '', make: '', model: '', trim: ''}
