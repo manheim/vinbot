@@ -18,71 +18,79 @@ model:
 plants:
 
 -
-  plant: Oshawa
+  name: Oshawa
   code: 9
 
 years:
 
 -
-  year: 2010
+  name: 2010
   code: A
 -
-  year: 2011
+  name: 2011
   code: B
 -
-  year: 2012
+  name: 2012
   code: C
 -
-  year: 2013
+  name: 2013
   code: D
 -
-  year: 2014
+  name: 2014
+  code: E
+
+body_type:
+  name: Two Door Coupe
+  code: 1
+
+restraint_system:
+  name: ACTIVE MANUAL BELTS,  AIRBAGS - DRIVER & PASSENGER - FRONT (1st ROW)
   code: E
 
 trims:
 -
-  trim: 1LS man
+  name: 1LS man
   code: E
   engine: &LLTV6
     name: LLT 3.6L V6
     code: V
 -
-  trim: 1LS auto
+  name: 1LS auto
   code: A
   engine: *LLTV6
 -
-  trim: 1LT man
+  name: 1LT man
   code: F
   engine: &LSV8
     name: LS 6.2L V8
     code: W
 -
-  trim: 1LT auto
+  name: 1LT auto
   code: B
   engine: *LSV8
 -
-  trim: 2LT man
+  name: 2LT man
   code: G
   engine: *LSV8
 -
-  trim: 2LT auto
+  name: 2LT auto
   code: C
   engine: *LSV8
 -
-  trim: 1SS man
+  name: 1SS man
   code: S
   engine: &L99V8
     name: L99 6.2L V8
     code: J
 -
-  trim: 2SS man
+  name: 2SS man
   code: T
   engine: *L99V8
 -
-  trim: 1SS auto
+  name: 1SS auto
   code: J
   engine: *L99V8
 -
-  trim: 2SS auto
+  name: 2SS auto
   code: K
   engine: *L99V8

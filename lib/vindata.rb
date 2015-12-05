@@ -3,13 +3,13 @@ require 'yaml'
 module Vindata
   class Index
 
-    INDEX_FILE = '/data/index.yml'
+    INDEX_FILE = './lib/vinbot/data/index.yml'
 
     attr_accessor :years, :makes, :models, :index
 
     def initialize(index_file = INDEX_FILE)
       @index = YAML.load_file(index_file)
-      #@years = self.years
+      @years = self.years
       @makes = self.makes
       @models = self.models
     end
