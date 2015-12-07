@@ -5,8 +5,8 @@ module Vinbot
 
     class << self
 
-      def generate
-        vehicle = Vinbot::Vehicle.new
+      def generate(options={})
+        vehicle = Vinbot::Vehicle.new(options)
         build(vehicle)
       end
 

@@ -35,10 +35,10 @@ module Vinbot
       plant = model_info['plants'].sample
       @plant = plant['name']
       @plant_code = plant['code']
-      year = options.has_key?(:year) ? model_info['years'].select { |hash| hash['name'].to_s.include?(options[:year].to_s) } : model_info['years'].sample
-      @year = year['name'].to_i
+      year = options.has_key?(:year) ? select_random(model_info['years'].select { |hash| hash['name'].to_s.include?(options[:year].to_s) }) : model_info['years'].sample
+      @year = year['name']
       @year_code = year['code']
-      trim = options.has_key?(:trim) ? model_info['trims'].select { |hash| hash['name'].include?(options[:trim].to_i) } : model_info['trims'].sample
+      trim = options.has_key?(:trim) ? select_random(model_info['trims'].select { |hash| hash['name'].include?(options[:trim]) }) : model_info['trims'].sample
       @trim = trim['name']
       @trim_code = trim['code']
       @engine = trim['engine']['name']
@@ -46,7 +46,7 @@ module Vinbot
     end
 
     def select_random(values)
-
+      values.sample
     end
 
     def model_file(options={})

@@ -38,6 +38,9 @@ years:
 -
   name: 2014
   code: E
+-
+  name: 2015
+  code: F
 
 body_type:
   name: Two Door Coupe
