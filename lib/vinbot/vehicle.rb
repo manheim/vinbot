@@ -1,6 +1,3 @@
-require 'vindata'
-require 'vinbot/vin'
-
 module Vinbot
   class Vehicle
 
@@ -9,7 +6,7 @@ module Vinbot
                   :restraint_system_code, :engine_code, :plant_code, :vin
 
     def initialize(options={})
-      model_info = YAML.load_file("./lib/vinbot/data/#{model_file}")
+      model_info = Vindata::Index.get_model_info(options)
       parse(model_info, options)
     end
 
@@ -47,10 +44,6 @@ module Vinbot
 
     def select_random(values)
       values.sample
-    end
-
-    def model_file(options={})
-      return Vindata::Index.new.index['models'].sample['file'] if options.empty?
     end
 
   end

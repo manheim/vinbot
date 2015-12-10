@@ -1,0 +1,57 @@
+---
+
+manufacturer:
+  name: Ford Motor Company, USA
+  code: F
+
+make:
+  name: Ford
+  code: A
+
+model:
+  name: Focus
+  code: 3
+
+countries:
+-
+  name: USA
+  code: 1
+
+-
+  name: Mexico
+  code: 3
+
+plants:
+-
+  name: Dearborn
+  code: F
+
+trims:
+-
+  name:
+  code:
+  start_year:
+  end_year:
+  engine: *foo
+  body_type: *bar
+  restraint_system: *blah
+  interior_colors:
+  exterior_colors:
+
+engines:
+-
+  engine: &foo
+    name:
+    code:
+
+body_types:
+-
+  body_type: &bar
+    name:
+    code:
+
+restraint_systems:
+-
+  restraint_system: &blah
+    name:
+    code:

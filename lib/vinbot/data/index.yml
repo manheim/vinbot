@@ -1,8 +1,9 @@
 ---
 
-models:
+vehicles:
 -
   make: Chevrolet
   model: Camaro
-  years: 2010-2014
+  start_year: 2010
+  end_year: 2014
   file: camaro.yml
