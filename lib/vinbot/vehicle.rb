@@ -5,11 +5,7 @@ module Vinbot
                   :interior_colors, :interior_color, :exterior_colors, :exterior_color, :squishvin, :vin
 
     def initialize(options={})
-      #model_info = RawMake.new(options)
-      #model_info = Vindata::Index.get_model_info(options)
-      #parse(model_info, options)
       self.parse Vindata::Index.get_vehicle_info(options).first
-      binding.pry
     end
 
     def generate_vin

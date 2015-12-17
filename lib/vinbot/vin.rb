@@ -11,18 +11,8 @@ module Vinbot
       end
 
       def build(vehicle)
-        p vehicle
-        vin_digits = Array.new(11) { '_'}
-        vin_digits[0] = vehicle.country_of_origin_code
-        vin_digits[1] = vehicle.manufacturer_code
-        vin_digits[2] = vehicle.make_code
-        vin_digits[3] = vehicle.model_code
-        vin_digits[4] = vehicle.trim_code
-        vin_digits[5] = vehicle.body_type_code
-        vin_digits[6] = vehicle.restraint_system_code
-        vin_digits[7] = vehicle.engine_code
-        vin_digits[9] = vehicle.year_code
-        vin_digits[10] = vehicle.plant_code
+        vin_digits = vehicle.squishvin.split(//)
+        vin_digits.insert(8, '_')
         vin_digits += serial
         vin_digits[8] = calculate_check_digit(vin_digits)
         vin_digits.join

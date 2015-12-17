@@ -2,18 +2,18 @@ require './spec/spec_helper'
 
 describe('Vin') do
 
-  describe('generating vins') do
+  describe('generated vins') do
 
     before do
       @vin = Vinbot::Vin.generate
     end
 
-    it('it should be 17 digits') do
+    it('should be 17 digits') do
       expect(@vin.length).to eql 17
     end
 
     it('should be alphanumeric') do
-      expect(@vin.(/[A-Z1-9]+/)).eql @vin
+      expect(@vin.slice(/[A-Z0-9]+/)).to eql @vin
     end
 
     it('should be upcase') do
@@ -46,8 +46,7 @@ describe('Vin') do
   end
 
   it('serial sequence should be 6 digits') do
-    binding.pry
-    expect(Vinbot::Vin.send(:serial).to_s.size).to eql 6
+    expect(Vinbot::Vin.send(:serial).length).to eql 6
   end
 
 end
