@@ -1,45 +1,34 @@
 module Vinbot
   class Vehicle
 
-    attr_accessor :year, :make, :model, :trim, :country_of_origin, :manufacturer, :restraint_system, :engine, :plant, :body_type,
-                  :year_code, :make_code, :model_code, :trim_code, :country_of_origin_code, :manufacturer_code, :body_type_code,
-                  :restraint_system_code, :engine_code, :plant_code, :vin
+    attr_accessor :year, :make, :model, :trim, :engine_type, :transmission, :body_type, :vehicle_type, :drive_train,
+                  :interior_colors, :interior_color, :exterior_colors, :exterior_color, :squishvin, :vin
 
     def initialize(options={})
-      model_info = Vindata::Index.get_model_info(options)
-      parse(model_info, options)
+      #model_info = RawMake.new(options)
+      #model_info = Vindata::Index.get_model_info(options)
+      #parse(model_info, options)
+      self.parse Vindata::Index.get_vehicle_info(options).first
+      binding.pry
     end
 
     def generate_vin
       Vehicle::Vin.build(self)
     end
 
-    private
-
-    def parse(model_info, options)
-      @country_of_origin = model_info['country']['name']
-      @country_of_origin_code = model_info['country']['code']
-      @manufacturer = model_info['manufacturer']['name']
-      @manufacturer_code = model_info['manufacturer']['code']
-      @make = model_info['make']['name']
-      @make_code = model_info['make']['code']
-      @model = model_info['model']['name']
-      @model_code = model_info['model']['code']
-      @body_type = model_info['body_type']['name']
-      @body_type_code = model_info['body_type']['code']
-      @restraint_system = model_info['restraint_system']['name']
-      @restraint_system_code = model_info['restraint_system']['code']
-      plant = model_info['plants'].sample
-      @plant = plant['name']
-      @plant_code = plant['code']
-      year = options.has_key?(:year) ? select_random(model_info['years'].select { |hash| hash['name'].to_s.include?(options[:year].to_s) }) : model_info['years'].sample
-      @year = year['name']
-      @year_code = year['code']
-      trim = options.has_key?(:trim) ? select_random(model_info['trims'].select { |hash| hash['name'].include?(options[:trim]) }) : model_info['trims'].sample
-      @trim = trim['name']
-      @trim_code = trim['code']
-      @engine = trim['engine']['name']
-      @engine_code = trim['engine']['code']
+    def parse(vehicle_info)
+      self.year = vehicle_info['YEAR']
+      self.make = vehicle_info['MAKE']
+      self.model = vehicle_info['MODEL']
+      self.trim = vehicle_info['TRIM']
+      self.engine_type = vehicle_info['ENGINE_TYPE']
+      self.transmission = vehicle_info['TRANSMISSION']
+      self.body_type = vehicle_info['BODY_TYPE']
+      self.vehicle_type = vehicle_info['VEHICLE_TYPE']
+      self.drive_train = vehicle_info['DRIVE_TRAIN']
+      self.interior_colors = vehicle_info['INTERIOR_COLORS']
+      self.exterior_colors = vehicle_info['EXTERIOR_COLORS']
+      self.squishvin = vehicle_info['SQUISHVIN']
     end
 
     def select_random(values)
