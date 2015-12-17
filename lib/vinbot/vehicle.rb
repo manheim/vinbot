@@ -6,10 +6,11 @@ module Vinbot
 
     def initialize(options={})
       self.parse Vindata::Index.get_vehicle_info(options).first
+      self.generate_vin
     end
 
     def generate_vin
-      Vehicle::Vin.build(self)
+      self.vin = Vinbot::Vin.build(self)
     end
 
     def parse(vehicle_info)
@@ -27,22 +28,5 @@ module Vinbot
       self.squishvin = vehicle_info['SQUISHVIN']
     end
 
-    def select_random(values)
-      values.sample
-    end
-
   end
 end
-
-
-
-
-
-
-# #vin
-# Vinbot::Vin.generate
-#
-# #vehicle
-# Vinbot::Vehicle.new(options={})
-#
-# options = {year: '', make: '', model: '', trim: ''}
