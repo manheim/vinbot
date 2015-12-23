@@ -5,9 +5,13 @@ require "vindata"
 require "securerandom"
 require "pry"
 require "pry-nav"
+require 'vin_bank'
+require 'sequel'
+require 'sqlite3'
 
 
 module Vinbot
-
-  # Your code goes here...
+  DB = Sequel.sqlite(VinBank.db_path)
 end
+
+

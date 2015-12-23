@@ -14,8 +14,8 @@ binding.pry
 # require "irb"
 # IRB.start
 
-Vinbot.Vehicle.generate
-
-Vinbot::Vin.generate
-
-Vinbot::Vin.generate(params)
+# Vinbot.Vehicle.generate
+#
+# Vinbot::Vin.generate
+#
+# Vinbot::Vin.generate(params)
