@@ -9,8 +9,7 @@ require 'vin_bank'
 require 'sequel'
 require 'sqlite3'
 
-#DB = Sequel.sqlite(VinBank.db_path)
-DB = Sequel.sqlite('/Users/uchagani/dev/vin_bank/db/vin_bank.db')
+DB = Sequel.sqlite(VinBank.db_path)
 
 module Vinbot
 
