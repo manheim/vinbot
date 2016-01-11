@@ -1,30 +1,26 @@
 module Vinbot
   class Vehicle
 
-    attr_accessor :year, :make, :model, :trim, :engine_type, :transmission, :body_type, :vehicle_type, :drive_train,
-                  :interior_colors, :interior_color, :exterior_colors, :exterior_color, :squish_vin, :vin
+    attr_accessor :year, :make, :model, :trim, :engine_type, :transmission, :body_type, :vehicle_type, :drivetrain,
+                  :interior_colors, :interior_color, :exterior_colors, :exterior_color, :vin
 
     def initialize(options={})
-      @current_vehicle = ::Vinbot::Data::Vehicle.new
-    end
-
-    def generate_vin
-      self.vin = Vinbot::Vin.build(self)
-    end
-
-    def parse(vehicle_info)
-      self.year = vehicle_info['YEAR']
-      self.make = vehicle_info['MAKE']
-      self.model = vehicle_info['MODEL']
-      self.trim = vehicle_info['TRIM']
-      self.engine_type = vehicle_info['ENGINE_TYPE']
-      self.transmission = vehicle_info['TRANSMISSION']
-      self.body_type = vehicle_info['BODY_TYPE']
-      self.vehicle_type = vehicle_info['VEHICLE_TYPE']
-      self.drive_train = vehicle_info['DRIVE_TRAIN']
-      self.interior_colors = vehicle_info['INTERIOR_COLORS']
-      self.exterior_colors = vehicle_info['EXTERIOR_COLORS']
-      self.squishvin = vehicle_info['SQUISHVIN']
+      vehicle = ::Vinbot::Data::Vehicle.order(Sequel.lit('RANDOM()')).limit(1).first
+      @year = vehicle.year.name
+      @make = vehicle.make.name
+      @model = vehicle.model.name
+      @trim = vehicle.trim.name
+      @engine_type = vehicle.engine_type.name
+      @transmission = vehicle.transmission.name
+      @body_type = vehicle.body_type.name
+      @vehicle_type = vehicle.vehicle_type.name
+      @drivetrain = vehicle.drivetrain.name
+      @interior_colors = vehicle.interior_color.name
+      @interior_color = @interior_colors.empty? ? '' : @interior_colors.split(',').sample
+      @exterior_colors = vehicle.exterior_color.name
+      @exterior_color = @exterior_colors.empty? ? '' : @exterior_colors.split(',').sample
+      @squish_vin = vehicle.squish_vin
+      @vin = Vin.build(vehicle)
     end
 
   end

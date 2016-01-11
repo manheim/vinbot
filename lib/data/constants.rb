@@ -1,6 +1,6 @@
 module Vinbot
   module Data
-    class VinConstants
+    class Constants
 
       WEIGHT_FACTORS = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2]
 
