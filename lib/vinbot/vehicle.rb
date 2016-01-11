@@ -15,8 +15,8 @@ module Vinbot
       @body_type = vehicle.body_type.name
       @vehicle_type = vehicle.vehicle_type.name
       @drivetrain = vehicle.drivetrain.name
-      @interior_colors = vehicle.interior_color.name
-      @exterior_colors = vehicle.exterior_color.name
+      @interior_colors = vehicle.interior_color.name.split(',')
+      @exterior_colors = vehicle.exterior_color.name.split(',')
       @vin = Vin.generate_from_squish_vin(vehicle.squish_vin)
     end
 
