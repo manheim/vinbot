@@ -4,7 +4,7 @@ module Vinbot
     attr_accessor :year, :make, :model, :trim, :engine_type, :transmission, :body_type, :vehicle_type, :drivetrain,
                   :interior_colors, :interior_color, :exterior_colors, :exterior_color, :vin
 
-    def initialize(options={})
+    def initialize
       vehicle = ::Vinbot::Data::Vehicle.order(Sequel.lit('RANDOM()')).limit(1).first
       @year = vehicle.year.name
       @make = vehicle.make.name
