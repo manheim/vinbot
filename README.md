@@ -36,21 +36,29 @@ Vinbot::Vin.generate
 
 ```ruby
 Vinbot::Vehicle.new
-=> #<Vinbot::Vehicle:0x007fc2493717f8
- @body_type="Cargo Van",
- @drivetrain="rear wheel drive",
- @engine_type="5.6L 8 Cyl. regular unleaded",
- @exterior_color="Red Alert",
- @exterior_colors="Brilliant Silver Metallic,Glacier White,Graphite Blue Metallic,Midnight Garnet Metallic,Red Alert,Super Black",
- @interior_color="Charcoal Premium Cloth",
- @interior_colors="Charcoal Premium Cloth",
- @make="Nissan",
- @model="NV Cargo",
+=> #<Vinbot::Vehicle:0x007fd05141e708
+ @body_type="Passenger Minivan",
+ @drivetrain="front wheel drive",
+ @engine_type="3.3L 6 Cyl. flex-fuel (unleaded/E85)",
+ @exterior_colors=
+  ["Blackberry Pearlcoat",
+   "Bright Silver Metallic Clearcoat",
+   "Brilliant Black Crystal Pearlcoat",
+   "Dark Cordovan Pearlcoat",
+   "Dark Titanium Metallic Clearcoat",
+   "Deep Cherry Red Crystal Pearlcoat",
+   "Deep Water Blue Pearlcoat",
+   "Inferno Red Crystal Pearlcoat",
+   "Stone White Clearcoat",
+   "White Gold Clearcoat"],
+ @interior_colors=["Dark Slate Gray/Light Shale (Cloth)", "Medium Slate Gray/Light Shale (Cloth)"],
+ @make="Dodge",
+ @model="Grand Caravan",
  @transmission="AUTOMATIC",
- @trim="3500 SV 3dr Van w/High Roof (5.6L 8cyl 5A)",
- @vehicle_type="Van",
- @vin="1N6AF0LY5EN177560",
- @year=2014>
+ @trim="SE 4dr Minivan (3.3L 6cyl 4A)",
+ @vehicle_type="Minivan",
+ @vin="2D4RN4DE1AR507053",
+ @year=2010>
 ```
 
 
