@@ -19,7 +19,6 @@ module Vinbot
       @interior_color = @interior_colors.empty? ? '' : @interior_colors.split(',').sample
       @exterior_colors = vehicle.exterior_color.name
       @exterior_color = @exterior_colors.empty? ? '' : @exterior_colors.split(',').sample
-      @squish_vin = vehicle.squish_vin
       @vin = Vin.generate_from_squish_vin(vehicle.squish_vin)
     end
 
