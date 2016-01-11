@@ -2,7 +2,6 @@
 
 require "bundler/setup"
 require "vinbot"
-require "vindata"
 require "pry"
 
 Dir[File.expand_path('lib/models/*.rb')].each {|file| require file }

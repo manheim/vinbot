@@ -2,11 +2,10 @@ module Vinbot
   class Vehicle
 
     attr_accessor :year, :make, :model, :trim, :engine_type, :transmission, :body_type, :vehicle_type, :drive_train,
-                  :interior_colors, :interior_color, :exterior_colors, :exterior_color, :squishvin, :vin
+                  :interior_colors, :interior_color, :exterior_colors, :exterior_color, :squish_vin, :vin
 
     def initialize(options={})
-      self.parse Vindata::Index.get_vehicle_info(options).first
-      self.generate_vin
+      @current_vehicle = ::Vinbot::Data::Vehicle.new
     end
 
     def generate_vin

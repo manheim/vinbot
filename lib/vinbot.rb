@@ -1,7 +1,5 @@
-require "vinbot/vin_contants"
 require "vinbot/vehicle"
 require "vinbot/vin"
-require "vindata"
 require "securerandom"
 require "pry"
 require "pry-nav"
@@ -10,6 +8,8 @@ require 'sequel'
 require 'sqlite3'
 
 DB = Sequel.sqlite(VinBank.db_path)
+Dir[File.expand_path('lib/data/*.rb')].each {|file| require file }
+
 
 module Vinbot
 

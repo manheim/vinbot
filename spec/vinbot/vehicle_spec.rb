@@ -3,8 +3,7 @@ require './spec/spec_helper'
 describe('Vehicle') do
 
   it('should return a vehicle') do
-    vehicle = Vinbot::Vehicle.new
-    vehicle.is_a? Vinbot::Vehicle
+    expect(Vinbot::Data::Vehicle.new).to be_a_kind_of Vinbot::Data::Vehicle
   end
 
 end
