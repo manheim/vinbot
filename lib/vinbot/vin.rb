@@ -1,17 +1,14 @@
-require 'vinbot/vehicle'
-
 module Vinbot
   class Vin
 
     class << self
 
-      def generate(options={})
-        Vinbot::Vehicle.new(options).vin
+      def generate
+        Vinbot::Vehicle.new.vin
       end
 
-      def build(vehicle)
-        vin_digits = vehicle.squish_vin.split(//)
-        vin_digits.insert(8, '_')
+      def generate_from_squish_vin(squish_vin)
+        vin_digits = squish_vin.chars.insert(8, '_')
         vin_digits += serial
         vin_digits[8] = calculate_check_digit(vin_digits)
         vin_digits.join
@@ -35,13 +32,11 @@ module Vinbot
       end
 
       def mapped_vin_values(partial_vin)
-        values = partial_vin.map { |v| Vinbot::Data::Constants::EBCDIC_MAP[v].nil? ? v : Vinbot::Data::Constants::EBCDIC_MAP[v] }
-        values.map! { |v| v.to_i }
-        values
+        partial_vin.map { |v| Vinbot::Data::Constants::EBCDIC_MAP[v].nil? ? v.to_i : Vinbot::Data::Constants::EBCDIC_MAP[v].to_i }
       end
 
       def weighted_values(values)
-        (0...values.count).inject([]) {|r, i| r << values[i] * Vinbot::Data::Constants::WEIGHT_FACTORS[i]}
+        (0...values.count).inject([]) { |r, i| r << values[i] * Vinbot::Data::Constants::WEIGHT_FACTORS[i] }
       end
 
       def sum_of_products(products)
