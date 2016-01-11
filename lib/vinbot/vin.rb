@@ -6,23 +6,12 @@ module Vinbot
     class << self
 
       def generate(options={})
-        vehicle = Vinbot::Vehicle.new(options)
-        build(vehicle)
+        Vinbot::Vehicle.new(options).vin
       end
 
       def build(vehicle)
-        p vehicle
-        vin_digits = Array.new(11) { '_'}
-        vin_digits[0] = vehicle.country_of_origin_code
-        vin_digits[1] = vehicle.manufacturer_code
-        vin_digits[2] = vehicle.make_code
-        vin_digits[3] = vehicle.model_code
-        vin_digits[4] = vehicle.trim_code
-        vin_digits[5] = vehicle.body_type_code
-        vin_digits[6] = vehicle.restraint_system_code
-        vin_digits[7] = vehicle.engine_code
-        vin_digits[9] = vehicle.year_code
-        vin_digits[10] = vehicle.plant_code
+        vin_digits = vehicle.squish_vin.split(//)
+        vin_digits.insert(8, '_')
         vin_digits += serial
         vin_digits[8] = calculate_check_digit(vin_digits)
         vin_digits.join
@@ -46,13 +35,13 @@ module Vinbot
       end
 
       def mapped_vin_values(partial_vin)
-        values = partial_vin.map { |v| Vinbot::VinConstants::EBCDIC_MAP[v].nil? ? v : Vinbot::VinConstants::EBCDIC_MAP[v] }
+        values = partial_vin.map { |v| Vinbot::Data::Constants::EBCDIC_MAP[v].nil? ? v : Vinbot::Data::Constants::EBCDIC_MAP[v] }
         values.map! { |v| v.to_i }
         values
       end
 
       def weighted_values(values)
-        (0...values.count).inject([]) {|r, i| r << values[i] * Vinbot::VinConstants::WEIGHT_FACTORS[i]}
+        (0...values.count).inject([]) {|r, i| r << values[i] * Vinbot::Data::Constants::WEIGHT_FACTORS[i]}
       end
 
       def sum_of_products(products)
