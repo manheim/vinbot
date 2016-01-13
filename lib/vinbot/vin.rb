@@ -8,7 +8,7 @@ module Vinbot
       end
 
       def generate_from_squish_vin(squish_vin)
-        vin_digits = squish_vin.chars.insert(8, '_')
+        vin_digits = squish_vin.chars.to_a.insert(8, '_')
         vin_digits += serial
         vin_digits[8] = calculate_check_digit(vin_digits)
         vin_digits.join
