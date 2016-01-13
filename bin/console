@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "vinbot"
 require "pry"
-
-Dir[File.expand_path('lib/models/*.rb')].each {|file| require file }
+require "vinbot"
 
 binding.pry
