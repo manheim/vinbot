@@ -5,8 +5,8 @@ module Vinbot
                   :interior_colors, :exterior_colors, :vin
 
     def initialize(params = {})
-      params_ids = parse_params(params)
-      vehicle = ::Vinbot::Data::Vehicle.where(params_ids).order(Sequel.lit('RANDOM()')).limit(1).first
+      params = parse_params(params) unless params.empty?
+      vehicle = ::Vinbot::Data::Vehicle.where(params).order(Sequel.lit('RANDOM()')).limit(1).first
       @year = vehicle.year.name
       @make = vehicle.make.name
       @model = vehicle.model.name
@@ -27,7 +27,7 @@ module Vinbot
       params_ids = {}
       params_ids[:year_id] = year_id(params[:year]) if params[:year]
       params_ids[:make_id] = make_id(params[:make]) if params[:make]
-      params_ids[:model_id] = year_id(params[:model]) if params[:model]
+      params_ids[:model_id] = model_id(params[:model]) if params[:model]
       params_ids
     end
 
