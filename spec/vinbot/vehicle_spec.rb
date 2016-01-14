@@ -21,4 +21,10 @@ describe('Vehicle') do
     expect(vehicle.model).to eql "Focus"
   end
 
+  it('should return vehicle with multiple parameters') do
+    vehicle = Vinbot::Vehicle.new(year: 2011, model: "Focus")
+    expect(vehicle.year).to eql 2011
+    expect(vehicle.model).to eql "Focus"
+  end
+
 end
