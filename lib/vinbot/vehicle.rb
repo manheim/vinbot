@@ -6,7 +6,6 @@ module Vinbot
 
     def initialize(params = {})
       params_ids = parse_params(params)
-      binding.pry
       vehicle = ::Vinbot::Data::Vehicle.where(params_ids).order(Sequel.lit('RANDOM()')).limit(1).first
       @year = vehicle.year.name
       @make = vehicle.make.name
