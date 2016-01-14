@@ -40,7 +40,7 @@ module Vinbot
     end
 
     def model_id(model)
-      ::Vinbot::Data::Year.first(name: model).id
+      ::Vinbot::Data::Model.first(name: model).id
     end
 
   end
