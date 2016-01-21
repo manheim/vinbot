@@ -1,13 +1,13 @@
-require "vinbot/vin_contants"
-require "vinbot/vehicle"
-require "vinbot/vin"
-require "vindata"
-require "securerandom"
-require "pry"
-require "pry-nav"
+require 'securerandom'
+require 'sequel'
+require 'sqlite3'
+require 'vin_bank'
+require 'vinbot/vehicle'
+require 'vinbot/vin'
 
+DB = Sequel.sqlite(VinBank.db_path)
+Dir["#{File.dirname(__FILE__)}/data/*.rb"].each {|file| require file }
 
 module Vinbot
 
-  # Your code goes here...
 end

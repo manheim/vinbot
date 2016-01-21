@@ -1,8 +1,6 @@
 # Vinbot
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/vinbot`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Vinbot generates decodable vins for you to use in your applications.  Vinbot will also give you a vehicle object that contains the decoded information.  Vinbot is an API around the vin_bank database (https://github.com/manheim/vin_bank).
 
 ## Installation
 
@@ -22,7 +20,47 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+There are two ways to use vinbot:
+
+1.  Get a random, decodable vin
+2. Get a vehicle object that contains the vin and all decoded information for the vehicle.
+
+##### Get a random vin
+
+```ruby
+Vinbot::Vin.generate
+=> "WBADT43443G749665"
+```
+
+##### Get a decoded vehicle object
+
+```ruby
+Vinbot::Vehicle.new
+=> #<Vinbot::Vehicle:0x007fd05141e708
+ @body_type="Passenger Minivan",
+ @drivetrain="front wheel drive",
+ @engine_type="3.3L 6 Cyl. flex-fuel (unleaded/E85)",
+ @exterior_colors=
+  ["Blackberry Pearlcoat",
+   "Bright Silver Metallic Clearcoat",
+   "Brilliant Black Crystal Pearlcoat",
+   "Dark Cordovan Pearlcoat",
+   "Dark Titanium Metallic Clearcoat",
+   "Deep Cherry Red Crystal Pearlcoat",
+   "Deep Water Blue Pearlcoat",
+   "Inferno Red Crystal Pearlcoat",
+   "Stone White Clearcoat",
+   "White Gold Clearcoat"],
+ @interior_colors=["Dark Slate Gray/Light Shale (Cloth)", "Medium Slate Gray/Light Shale (Cloth)"],
+ @make="Dodge",
+ @model="Grand Caravan",
+ @transmission="AUTOMATIC",
+ @trim="SE 4dr Minivan (3.3L 6cyl 4A)",
+ @vehicle_type="Minivan",
+ @vin="2D4RN4DE1AR507053",
+ @year=2010>
+```
+
 
 ## Development
 
