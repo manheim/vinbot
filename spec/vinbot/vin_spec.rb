@@ -13,8 +13,8 @@ describe('Vin') do
     end
   end
 
-  describe '.generate_from_squish_vin' do
-    let(:vin) { Vinbot::Vin.generate_from_squish_vin('19UUA5671A') }
+  describe '.generate_from_partial_vin' do
+    let(:vin) { Vinbot::Vin.generate_from_partial_vin('19UUA5671A') }
 
     it 'should return a 17 character string' do
       expect(vin.length).to eql 17

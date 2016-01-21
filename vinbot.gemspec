@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-nav"
   spec.add_runtime_dependency "sqlite3"
   spec.add_runtime_dependency "sequel"
-  spec.add_runtime_dependency "vin_bank"
+  spec.add_runtime_dependency "vin_bank", ">= 3.0.0"
 end
