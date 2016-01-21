@@ -36,29 +36,19 @@ Vinbot::Vin.generate
 
 ```ruby
 Vinbot::Vehicle.new
-=> #<Vinbot::Vehicle:0x007fd05141e708
- @body_type="Passenger Minivan",
- @drivetrain="front wheel drive",
- @engine_type="3.3L 6 Cyl. flex-fuel (unleaded/E85)",
- @exterior_colors=
-  ["Blackberry Pearlcoat",
-   "Bright Silver Metallic Clearcoat",
-   "Brilliant Black Crystal Pearlcoat",
-   "Dark Cordovan Pearlcoat",
-   "Dark Titanium Metallic Clearcoat",
-   "Deep Cherry Red Crystal Pearlcoat",
-   "Deep Water Blue Pearlcoat",
-   "Inferno Red Crystal Pearlcoat",
-   "Stone White Clearcoat",
-   "White Gold Clearcoat"],
- @interior_colors=["Dark Slate Gray/Light Shale (Cloth)", "Medium Slate Gray/Light Shale (Cloth)"],
- @make="Dodge",
- @model="Grand Caravan",
- @transmission="AUTOMATIC",
- @trim="SE 4dr Minivan (3.3L 6cyl 4A)",
- @vehicle_type="Minivan",
- @vin="2D4RN4DE1AR507053",
- @year=2010>
+=> #<Vinbot::Vehicle:0x007fc06bd34068
+ @body_type="4Dr SUV",
+ @drivetrain="FWD",
+ @engine_type="3.6L 6 Cylinder",
+ @exterior_colors=["Silver"],
+ @interior_colors=["Off-white"],
+ @make="GMC",
+ @model="Acadia",
+ @transmission="Automatic",
+ @trim="SLE 4dr SUV ",
+ @vehicle_type="SUV",
+ @vin="1GKKRNED9CJ550307",
+ @year=2012>
 ```
 
 
