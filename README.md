@@ -6,13 +6,19 @@ Vinbot generates decodable vins for you to use in your applications.  Vinbot wil
 
 Add this line to your application's Gemfile:
 
+##### Ruby
 ```ruby
 gem 'vinbot'
 ```
 
+##### JRuby
+```ruby
+gem 'vinbot', :platform => :jruby
+```
+
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
