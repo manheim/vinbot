@@ -1,5 +1,7 @@
 # Vinbot
 
+[![Build Status](https://travis-ci.org/manheim/vinbot.svg?branch=master)](https://travis-ci.org/manheim/vinbot)
+
 Vinbot generates decodable vins for you to use in your applications.  Vinbot will also give you a vehicle object that contains the decoded information.  Vinbot is an API around the vin_bank database (https://github.com/manheim/vin_bank).
 
 ## Installation
