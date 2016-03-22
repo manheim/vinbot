@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gemspec :name => 'vinbot.gemspec'
+gemspec :name => "vinbot"
