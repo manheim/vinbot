@@ -1,7 +1,7 @@
 before_install: 
   - "gem update --system"
   - "gem --version"
-  - "gem install bundler"
+  - "gem install -v 1.10.6 bundler --no-rdoc --no-ri"
   - "bundler --version"
 gemfile: 
   - Gemfile
