@@ -28,8 +28,8 @@ module Vinbot
       end
 
       def self.get_random_vehicle
-        count = ::Vinbot::Data::Vehicle.count
-        ::Vinbot::Data::Vehicle.where(id: rand(count)).first
+        max = ::Vinbot::Data::Vehicle.max(:id)
+        ::Vinbot::Data::Vehicle.where(id: rand(1..max)).first
       end
     end
   end
