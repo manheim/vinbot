@@ -20,11 +20,11 @@ module Vinbot
       end
 
       def self.perform_joins(params)
-        params.keys.inject(from(:vehicles)) { |r, e| r.join("#{e}s".to_sym, :id => "vehicles__#{e}_id".to_sym) }
+        params.keys.inject(from(:vehicles)) { |r, e| r.join("#{e}s".to_sym, :id => Sequel.qualify(:vehicles, "#{e}_id".to_sym)) }
       end
 
       def self.add_conditions_to_join(join_query, params)
-        params.inject(join_query) { |r, e| r.where("#{e.first}s__name".to_sym => e.last) }
+        params.inject(join_query) { |r, e| r.where(Sequel.qualify("#{e.first}s".to_sym, :name) => e.last) }
       end
 
       def self.get_random_vehicle
