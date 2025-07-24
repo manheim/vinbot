@@ -1,6 +1,7 @@
 require 'securerandom'
 require 'sequel'
 require 'vin_bank'
+require 'vinbot/version'
 require 'vinbot/vehicle'
 require 'vinbot/vin'
 
