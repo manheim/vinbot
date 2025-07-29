@@ -14,6 +14,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/manheim/vinbot"
   spec.license       = "MIT"
 
+  spec.required_ruby_version = ">= 3.0.0"
+
   spec.files         = Dir["lib/**/*"]
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
@@ -24,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "pry-nav"
-  spec.add_runtime_dependency "sqlite3"
+  spec.add_runtime_dependency "sqlite3", "~> 2.7.3"
   spec.add_runtime_dependency "sequel"
   spec.add_runtime_dependency "vin_bank", ">= 3.1.0"
 end
